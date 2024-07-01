@@ -47,12 +47,24 @@ app.component("Auth", Auth);
 // 全局注册vue-tippy
 import "tippy.js/dist/tippy.css";
 import "tippy.js/themes/light.css";
+import VxeTable from "vxe-table";
+import "vxe-table/lib/style.css";
+// ...
+
+import VxeUI from "vxe-pc-ui";
+import "vxe-pc-ui/lib/style.css";
 import VueTippy from "vue-tippy";
+import VxeUIPluginRenderElement from "@vxe-ui/plugin-render-element";
+import "@vxe-ui/plugin-render-element/dist/style.css";
+VxeUI.use(VxeUIPluginRenderElement);
+
 app.use(VueTippy);
 
 getPlatformConfig(app).then(async config => {
   setupStore(app);
   app.use(router);
+  app.use(VxeUI);
+  app.use(VxeTable);
   await router.isReady();
   injectResponsiveStorage(app, config);
   app.use(MotionPlugin).use(useElementPlus).use(Table);
