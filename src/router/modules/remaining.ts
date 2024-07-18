@@ -12,6 +12,16 @@ export default [
     }
   },
   {
+    path: "/login2",
+    name: "Login3",
+    component: () => import("@/views/welcome/index.vue"),
+    meta: {
+      title: "登录",
+      showLink: false,
+      rank: 1031
+    }
+  },
+  {
     path: "/redirect",
     component: Layout,
     meta: {
